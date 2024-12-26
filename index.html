@@ -1,101 +1,177 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Lifestyle</title>
-  <style>
-    /* General Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+  }
 
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f9f9f9;
-      color: #333;
-      padding: 20px;
-    }
+  .container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
 
-    /* Header */
-    header {
-      background: #0077cc;
-      color: #fff;
-      padding: 20px 10px;
-      text-align: center;
-    }
+  .header-image {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+  }
 
-    header h1 {
-      font-size: 2.5rem;
-    }
+  h1 {
+    font-size: 1.8em;
+    margin: 20px 0 10px;
+    color: #333;
+  }
 
-    header p {
-      font-size: 1.1rem;
-      margin-top: 10px;
-    }
+  .question {
+    display: none;
+    margin: 20px 0;
+  }
 
-    /* Blog Container */
-    .blog-container {
-      max-width: 800px;
-      margin: 20px auto;
-      background: #fff;
-      padding: 20px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-    }
+  .question.active {
+    display: block;
+  }
 
-    .blog-container h2 {
-      color: #0077cc;
-      margin-bottom: 15px;
-    }
+  .question h2 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #555;
+  }
 
-    .blog-container p {
-      margin-bottom: 15px;
-    }
+  .options {
+    display: flex;
+    flex-direction: column;
+  }
 
-    .blog-container a {
-      color: #0077cc;
-      text-decoration: none;
-    }
+  .options button {
+    padding: 12px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
 
-    .blog-container a:hover {
-      text-decoration: underline;
-    }
+  .options button:hover {
+    background-color: #0056b3;
+  }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      margin-top: 20px;
-      padding: 10px;
-      background: #333;
-      color: #fff;
-      font-size: 0.9rem;
-    }
-  </style>
-</head>
+  .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    text-align: center;
+  }
+
+  .popup h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #333;
+  }
+
+  .popup p {
+    font-size: 1em;
+    margin-bottom: 15px;
+    color: #666;
+  }
+
+  .popup button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .popup button:hover {
+    background-color: #218838;
+  }
+</style>
+
 <body>
-  <header>
-    <h1>Welcome to My Blog</h1>
-    <p>Sharing thoughts, ideas, and travels</p>
-  </header>
+  <div class="container">
+    <img src="iPhone.jpg" alt="Claim Your iPhone" class="header-image" style="width:450px; height:300px;>
+    <h1>iPhone Giveaway</h1>
+    <form id="qaForm">
+      <div class="question active" id="question1">
+        <h2>1. Which country are you from?</h2>
+        <div class="options">
+          <button type="button" onclick="nextQuestion('location', 'Ghana')">A) Ghana</button>
+          <button type="button" onclick="nextQuestion('location', 'Nigeria')">B) Nigeria</button>
+          <button type="button" onclick="nextQuestion('location', 'Canada')">C) Canada</button>
+          <button type="button" onclick="nextQuestion('location', 'Togo')">D) Togo</button>
+        </div>
+      </div>
 
-  <div class="blog-container">
-    <h2>Free Tips to Get a Job and Move to Italy Easily
-</h2>
-    <p>
-     <div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQkzmm-B3ToQUK1byB1ZzMW9keLbwdewA4fd4KX0UKsplqiDuOiu9rizhpl1F_S5MP0FwGnAKqjbIWkLPGGPHuqCN6wau94fld6wTbPYQ8eBkZNtKfuiRQ_XlHpSj_xSN4x6pBrY-yfgrch8Rs4FlZk5nlecFHaxGv6KBoayHVck0mTxP1-2_IEPg5oPdi/s301/vi.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="139" data-original-width="301" height="139" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQkzmm-B3ToQUK1byB1ZzMW9keLbwdewA4fd4KX0UKsplqiDuOiu9rizhpl1F_S5MP0FwGnAKqjbIWkLPGGPHuqCN6wau94fld6wTbPYQ8eBkZNtKfuiRQ_XlHpSj_xSN4x6pBrY-yfgrch8Rs4FlZk5nlecFHaxGv6KBoayHVck0mTxP1-2_IEPg5oPdi/s1600/vi.png" width="301" /></a></div><br /><p>&nbsp;<span face="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen, Oxygen-Sans, Ubuntu, Cantarell, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, sans-serif" style="background-color: white; color: #2c2f34; font-size: 20px;">If you want to work in Canada, you will need a work visa. To get a work visa, you must first have a job offer from a Canadian employer. Once you have a job offer, you can apply for a work visa through the Canadian government’s website. The process of applying for a work visa is as follows:</span></p><p style="background-color: white; border: 0px; box-sizing: border-box; color: #2c2f34; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen, Oxygen-Sans, Ubuntu, Cantarell, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, sans-serif; font-size: 20px; line-height: 1.75; list-style: none; margin: 0px 0px 25px; outline: none; padding: 0px;">You will receive your work permit by mail if your application is approved.</p><div class="stream-item stream-item-in-post stream-item-inline-post aligncenter" style="background-color: white; border: 0px; box-sizing: border-box; clear: both; color: #2c2f34; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen, Oxygen-Sans, Ubuntu, Cantarell, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, sans-serif; font-size: 20px; list-style: none; margin: 6px auto; outline: none; padding: 0px; position: relative; text-align: center; z-index: 2;"></div><div class="box shadow" style="background-color: #fdfdfd; border: 1px solid rgba(0, 0, 0, 0.1); box-shadow: rgb(238, 238, 238) 0px 0px 3px; box-sizing: border-box; clear: both; color: #2c2f34; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen, Oxygen-Sans, Ubuntu, Cantarell, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, sans-serif; font-size: 20px; list-style: none; margin: 0px 0px 20px; outline: none; overflow-wrap: break-word; padding: 20px; text-shadow: rgb(255, 255, 255) 0px 1px 1px;"><div class="box-inner-block" style="border: 0px; box-sizing: border-box; list-style: none; margin: 0px; min-height: 30px; outline: none; padding: 0px;"><span class="fa tie-shortcode-boxicon" style="-webkit-font-smoothing: antialiased; border: 0px; box-sizing: border-box; display: inline-block; float: left; font-family: FontAwesome; font-size: inherit; font-stretch: normal; font-variant-east-asian: normal; font-variant-numeric: normal; line-height: 1; list-style: none; margin: 0px 0px 0px -50px; outline: none; padding: 0px; text-rendering: auto;"></span><h2 style="border: 0px; box-sizing: border-box; font-family: Caudex; font-size: 27px; line-height: 1.3; list-style: none; margin: 0px 0px 0.5em; outline: none; padding: 0px;"><span style="border: 0px; box-sizing: border-box; list-style: none; margin: 0px; outline: none; padding: 0px;">The Benefits of Working in Canada</span></h2><p style="border: 0px; box-sizing: border-box; line-height: 1.75; list-style: none; margin: 0px 0px 25px; outline: none; padding: 0px;">There are many benefits to working in Canada. The country has a strong economy and a high standard of living. There are also plenty of opportunities for skilled workers. Canada is a great place to live and work.</p><p style="border: 0px; box-sizing: border-box; line-height: 1.75; list-style: none; margin: 0px 0px 25px; outline: none; padding: 0px;">The Canadian economy is one of the strongest in the world. This means that there are plenty of opportunities for skilled workers. Canada also has a high standard of living. This means you can enjoy a good quality of life while working here.</p><div class="stream-item stream-item-in-post stream-item-inline-post aligncenter" style="border: 0px; box-sizing: border-box; clear: both; list-style: none; margin: 6px auto; outline: none; padding: 0px; position: relative; text-align: center; z-index: 2;"></div><p style="border: 0px; box-sizing: border-box; line-height: 1.75; list-style: none; margin: 0px 0px 25px; outline: none; padding: 0px;">Canada is also home to some of the world’s top universities. This means that you can get an excellent education while you work here. There are also plenty of opportunities to advance your career in Canada.</p><p style="border: 0px; box-sizing: border-box; line-height: 1.75; list-style: none; margin: 0px 0px 25px; outline: none; padding: 0px;">you may read - <a href="#">Relocate To Italy With This Simple Steps</a></p><p style="border: 0px; box-sizing: border-box; line-height: 1.75; list-style: none; margin: 0px 0px 25px; outline: none; padding: 0px;">If you are looking for a country with plenty of opportunity and a high standard of living, then Canada is the place for you!</p><div class="box info" style="background: rgb(214, 246, 255); border: 0px rgb(191, 227, 236); box-sizing: border-box; clear: both; color: #005770; list-style: none; margin: 0px 0px 20px; outline: none; overflow-wrap: break-word; padding: 20px; text-shadow: rgb(255, 255, 255) 0px 1px 1px;"><div class="box-inner-block" style="border: 0px; box-sizing: border-box; list-style: none; margin: 0px; min-height: 30px; outline: none; padding: 0px 0px 0px 50px;"><h2 style="border: 0px; box-sizing: border-box; font-family: Caudex; font-size: 27px; line-height: 1.3; list-style: none; margin: 0px 0px 0.5em; outline: none; padding: 0px;"><span style="border: 0px; box-sizing: border-box; list-style: none; margin: 0px; outline: none; padding: 0px;">For How Long are Canadian Work Permits Valid?</span></h2><p style="border: 0px; box-sizing: border-box; line-height: 1.75; list-style: none; margin: 0px 0px 25px; outline: none; padding: 0px;">When considering how long a Canadian work permit is valid, there are many factors to consider. The first factor is the type of work permit that is being used. The second factor is the country of citizenship of the person who is applying for the work permit. And the last factor is the length of time the person wants to work in Canada.</p><p style="border: 0px; box-sizing: border-box; line-height: 1.75; list-style: none; margin: 0px; outline: none; padding: 0px;">Canadian work permits are generally valid for the duration of your employment contract, up to three years. Once your work permit expires, you must apply for a new one to continue working in Canada. You may also be eligible to apply for permanent residence through one of the many programs offered by Immigration, Refugees, and Citizenship Canada (IRCC).</p></div></div><div class="box note" style="background: rgb(255, 253, 219); border: 0px rgb(233, 229, 158); box-sizing: border-box; clear: both; color: #756f00; list-style: none; margin: 0px 0px 20px; outline: none; overflow-wrap: break-word; padding: 20px; text-shadow: rgb(255, 255, 255) 0px 1px 1px;"><div class="box-inner-block" style="border: 0px; box-sizing: border-box; list-style: none; margin: 0px; min-height: 30px; outline: none; padding: 0px 0px 0px 50px;"><span class="fa tie-shortcode-boxicon" style="-webkit-font-smoothing: antialiased; border: 0px; box-sizing: border-box; display: inline-block; float: left; font-family: FontAwesome; font-size: inherit; font-stretch: normal; font-variant-east-asian: normal; font-variant-numeric: normal; line-height: 1; list-style: none; margin: 0px 0px 0px -50px; outline: none; padding: 0px; text-rendering: auto;"></span><h2 style="border: 0px; box-sizing: border-box; font-family: Caudex; font-size: 27px; line-height: 1.3; list-style: none; margin: 0px 0px 0.5em; outline: none; padding: 0px;"><span style="border: 0px; box-sizing: border-box; list-style: none; margin: 0px; outline: none; padding: 0px;">Types of Canadian Work Permits</span></h2><p style="border: 0px; box-sizing: border-box; line-height: 1.75; list-style: none; margin: 0px 0px 25px; outline: none; padding: 0px;">There are four types of work permits under temporary and permanent work permits available to foreign nationals who wish to work in Canada: open work permits, closed work permits, employer-specific work permits, and self-employed work permits.</p>
-    </p>
-    <p>
-      Want to learn more? Check out the
-      <a href="#">documentation</a>.
-    </p>
+      <div class="question" id="question2">
+        <h2>2. What will you use the iPhone for?</h2>
+        <div class="options">
+          <button type="button" onclick="nextQuestion('usage', 'TikTok Videos')">A) TikTok Videos</button>
+          <button type="button" onclick="nextQuestion('usage', 'Business')">B) Business</button>
+          <button type="button" onclick="nextQuestion('usage', 'School Activities')">C) School Activities</button>
+          <button type="button" onclick="nextQuestion('usage', 'None of the Above')">D) None of the Above</button>
+        </div>
+      </div>
+
+      <div class="question" id="question3">
+        <h2>3. Have you applied for a similar iPhone giveaway before?</h2>
+        <div class="options">
+          <button type="button" onclick="showPopup('Yes, many')">A) Yes, many</button>
+          <button type="button" onclick="showPopup('A few times')">B) A few times</button>
+          <button type="button" onclick="showPopup('No, this is my first')">C) No, this is my first</button>
+          <button type="button" onclick="showPopup('Yes')">D) Yes</button>
+        </div>
+      </div>
+    </form>
   </div>
 
-  <footer>
-    &copy; 2024 My Blog. All rights reserved.
-  </footer>
+  <div class="popup" id="popup">
+    <h2>Claim Your iPhone Now!</h2>
+    <p>Congratulations! You are one step away from claiming your brand-new iPhone. This giveaway is designed to reward our loyal users like you.</p>
+    <p>Please ensure all your details are accurate as you proceed to claim your reward. Your iPhone will be shipped to your location upon successful verification.</p>
+    <p>Don't miss this exciting opportunity to own one of the latest devices on the market!</p>
+    <button onclick="redirectToClaim()">Claim Now</button>
+  </div>
+
+  <script>
+    function nextQuestion(question, value) {
+      console.log(question + ': ' + value);
+      let currentQuestion = document.querySelector('.question.active');
+      currentQuestion.classList.remove('active');
+      let nextQuestion = currentQuestion.nextElementSibling;
+      if (nextQuestion) {
+        nextQuestion.classList.add('active');
+      }
+    }
+
+    function showPopup(value) {
+      console.log('Final Answer: ' + value);
+      document.querySelector('.question.active').classList.remove('active');
+      document.getElementById('popup').style.display = 'block';
+    }
+
+    function redirectToClaim() {
+      window.location.href = 'https://teemytunes.com/top-high-paying-jobs-in-canada-with-100k-visa-sponsorship-for-2024/';
+    }
+  </script>
 </body>
-</html>
